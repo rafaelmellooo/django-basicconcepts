@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from .views import User
+
 urlpatterns = [
+    path('users/', User.index),
+    path('users/<int:id>/', User.show),
     path('admin/', admin.site.urls),
 ]
