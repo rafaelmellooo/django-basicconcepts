@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Django</title>
+  <link rel="stylesheet" href="{% static 'styles/user/index.css' %}">
+</head>
+
+<body>
+
+  <header>
+    <img src="{% static 'django.png' %}" alt="django" />
+  </header>
+
+  <main>
+    <section>
+
+      {% for user in users %}
+      <article>
+        <div class="avatar-group">
+          <img class="avatar" src="{{ user.avatar_url }}" alt="{{ user.first_name }} {{ user.last_name }}" />
+          <h2>{{ user.first_name }} {{ user.last_name }} | {{ user.age }}</h2>
+        </div>
+
+        <div class="email">
+          <h2>E-mail</h2>
+          <p>{{ user.email }}</p>
+        </div>
+
+        <div class="bio">
+          <h2>Bio</h2>
+          <p>{{ user.bio }}</p>
+        </div>
+      </article>
+      {% endfor %}
+
+    </section>
+  </main>
+
+</body>
+
+</html>

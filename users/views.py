@@ -1,33 +1,17 @@
 from django.shortcuts import render
 
+from .models import User
+
 
 def index(request):
-    return render(request, 'index.html')
+    users = User.objects.all()
+    return render(request, 'user/index.html', {
+        'users': users
+    })
 
 
 def detail(request, id):
-    user_list = {
-        1: {
-            'id': 1,
-            'name': 'Rafael de Mello e Sousa'
-        },
-
-        2: {
-            'id': 2,
-            'name': 'Fernando Geraldo Oliveira'
-        }
-    }
-
-    user = {}
-
-    try:
-        user = {
-            'id': user_list[id]['id'],
-            'name': user_list[id]['name']
-        }
-    except:
-        user = {
-            'error': 'User not found'
-        }
-
-    return render(request, 'user.html', user)
+    user = User.objects.get(id=id)
+    return render(request, 'user/detail.html', {
+        'user': user
+    })
