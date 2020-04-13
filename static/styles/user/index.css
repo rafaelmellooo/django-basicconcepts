@@ -89,17 +89,17 @@ main section a article p {
 
 div.email h2,
 div.bio h2 {
-  font-size: 18px;
-  margin-bottom: 5px;
+  font-size: 14px;
   font-weight: 700;
 }
 
 div.email p {
-  font-size: 18px;
-  margin-bottom: 15px;
+  font-size: 14px;
+  margin-bottom: 24px;
+  line-height: 24px;
 }
 
 div.bio p {
   font-size: 14px;
-  line-height: 2;
+  line-height: 24px;
 }

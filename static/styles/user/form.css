@@ -32,37 +32,77 @@ main form {
   padding: 20px 100px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
 }
 
 textarea#bio {
   resize: vertical;
 }
 
+main form label {
+  font-size: 12px;
+  padding: 8px 0;
+  font-weight: 500;
+}
+
+main form ul {
+  list-style: none;
+}
+
+main form ul li {
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  color: #ffcc00;
+  font-weight: 500;
+}
+
+main form ul li::before {
+  margin-right: 4px;
+  content: "⚠️";
+}
+
 main form input,
 main form textarea {
   display: block;
   width: 100%;
-  margin-bottom: 20px;
   padding: 8px;
-  border-radius: 4px;
+  margin-bottom: 24px;
   border: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-main form input {
-  height: 50px;
+main form input:not([type='file']) {
   font-size: 18px;
+}
+
+main form input:not([type='file']):invalid {
+  box-shadow: none !important;
+  border-bottom: thin solid rgb(255, 0, 55) !important;
+}
+
+main form input:not([type='file']):valid {
+  box-shadow: none !important;
+  border-bottom: thin solid rgb(10, 187, 89) !important;
 }
 
 main form textarea {
   padding: 8px;
-  min-height: 150px;
-  line-height: 2;
+  line-height: 24px;
   font-size: 14px;
+  margin-top: 4px;
+}
+
+main form textarea:invalid {
+  box-shadow: none !important;
+  border: thin solid rgb(255, 0, 55);
+}
+
+main form textarea:valid {
+  box-shadow: none !important;
+  border: thin solid rgb(10, 187, 89);
 }
 
 main form button {
+  align-self: flex-end;
   display: block;
   padding: 10px 40px;
   background-color: #00875b;
