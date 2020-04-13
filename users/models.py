@@ -1,3 +1,5 @@
+import os
+
 from django.conf import settings
 from django.db import models
 from django.db.models.signals import pre_save
@@ -19,14 +21,12 @@ class User(models.Model):
     def avatar_url(self):
         return settings.MEDIA_URL + str(self.avatar)
 
-    @property
-    def get_absolute_url(self):
-        return reverse('user', kwargs={
-            'slug': self.slug
-        })
-
     def __str__(self):
         return self.first_name + ' ' + self.last_name
+
+    def delete(self, *args, **kwargs):
+        os.remove(os.path.join(settings.MEDIA_ROOT, str(self.avatar)))
+        super(User, self).delete(*args, **kwargs)
 
 
 # SIGNALS

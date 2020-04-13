@@ -35,3 +35,30 @@ def new(request):
         return render(request, 'user/form.html', {
             'form': form
         })
+
+
+def update(request, slug):
+    user = get_object_or_404(User, slug=slug)
+
+    if request.method == 'POST':
+        form = UserForm(request.POST, request.FILES, instance=user)
+
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        else:
+            return render(request, 'user/form.html', {
+                'form': form
+            })
+    else:
+        form = UserForm(instance=user)
+
+        return render(request, 'user/form.html', {
+            'form': form
+        })
+
+
+def delete(request, slug):
+    user = get_object_or_404(User, slug=slug)
+    user.delete()
+    return redirect('index')

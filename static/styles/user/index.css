@@ -13,12 +13,12 @@ button {
   font-family: 'Roboto', sans-serif;
 }
 
-main section a {
+a {
   text-decoration: inherit;
   color: inherit;
 }
 
-main section a:hover article {
+article:hover {
   background-color: rgb(243, 243, 243);
 }
 
@@ -49,6 +49,7 @@ a:hover #new {
 
 h2 {
   font-weight: 500;
+  font-size: 18px;
 }
 
 main {
@@ -62,7 +63,7 @@ main section {
   gap: 20px;
 }
 
-main section a article {
+main section article {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 10px;
   border-radius: 4px;
@@ -72,7 +73,14 @@ main section a article {
 div.avatar-group {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 15px;
+}
+
+div.avatar-group div {
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 img.avatar {
@@ -83,8 +91,29 @@ img.avatar {
   margin-right: 10px;
 }
 
-main section a article p {
-  font-weight: 400;
+#update,
+#delete {
+  width: 24px;
+  height: 24px;
+  color: #FFF;
+  padding: 4px;
+  border-radius: 4px;
+  transition: width 0.2s, height 0.2s;
+}
+
+#update {
+  background-color: rgb(0, 112, 103);
+}
+
+#update:hover,
+#delete:hover {
+  width: 28px;
+  height: 28px;
+}
+
+#delete {
+  margin-left: 8px;
+  background-color: rgb(255, 0, 55);
 }
 
 div.email h2,

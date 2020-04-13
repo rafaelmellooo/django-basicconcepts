@@ -25,24 +25,36 @@
     <section>
 
       {% for user in users %}
-      <a href="{{ user.get_absolute_url }}">
-        <article>
-          <div class="avatar-group">
-            <img class="avatar" src="{{ user.avatar_url }}" alt="{{ user.first_name }} {{ user.last_name }}" />
+      <article>
+        <div class="avatar-group">
+          <div>
+            <a href="{% url 'user' user.slug %}">
+              <img class="avatar" src="{{ user.avatar_url }}" alt="{{ user.first_name }} {{ user.last_name }}" />
+            </a>
             <h2>{{ user.first_name }} {{ user.last_name }} | {{ user.age }}</h2>
           </div>
 
-          <div class="email">
-            <h2>E-mail</h2>
-            <p>{{ user.email }}</p>
-          </div>
+          <div>
+            <a href="{% url 'update-user' user.slug %}">
+              <i id="update" data-feather="edit"></i>
+            </a>
 
-          <div class="bio">
-            <h2>Bio</h2>
-            <p>{{ user.bio }}</p>
+            <a href="{% url 'delete-user' user.slug %}">
+              <i id="delete" data-feather="trash"></i>
+            </a>
           </div>
-        </article>
-      </a>
+        </div>
+
+        <div class="email">
+          <h2>E-mail</h2>
+          <p>{{ user.email }}</p>
+        </div>
+
+        <div class="bio">
+          <h2>Bio</h2>
+          <p>{{ user.bio }}</p>
+        </div>
+      </article>
       {% endfor %}
 
     </section>
