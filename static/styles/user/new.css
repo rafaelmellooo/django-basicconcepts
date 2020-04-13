@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+body,
+input,
+button {
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  height: 100px;
+  background-color: #00875b;
+}
+
+header img {
+  display: block;
+  height: 100%;
+}
+
+main {
+  width: 1200px;
+  margin: 20px auto;
+}
+
+main form {
+  padding: 20px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+textarea#bio {
+  resize: vertical;
+}
+
+main form input,
+main form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 8px;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+main form input {
+  height: 50px;
+  font-size: 18px;
+}
+
+main form textarea {
+  padding: 8px;
+  min-height: 150px;
+  line-height: 2;
+  font-size: 14px;
+}
+
+main form button {
+  display: block;
+  padding: 10px 40px;
+  background-color: #00875b;
+  color: #FFF;
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+main form button:hover {
+  cursor: pointer;
+  background-color: #005f40;
+}

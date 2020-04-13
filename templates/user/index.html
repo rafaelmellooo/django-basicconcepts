@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Django</title>
+  <script src="{% static 'feather.min.js' %}"></script>
   <link rel="stylesheet" href="{% static 'styles/user/index.css' %}">
 </head>
 
@@ -14,32 +15,42 @@
 
   <header>
     <img src="{% static 'django.png' %}" alt="django" />
+
+    <a href="{% url 'new-user' %}">
+      <i id="new" data-feather="plus-circle"></i>
+    </a>
   </header>
 
   <main>
     <section>
 
       {% for user in users %}
-      <article>
-        <div class="avatar-group">
-          <img class="avatar" src="{{ user.avatar_url }}" alt="{{ user.first_name }} {{ user.last_name }}" />
-          <h2>{{ user.first_name }} {{ user.last_name }} | {{ user.age }}</h2>
-        </div>
+      <a href="{{ user.get_absolute_url }}">
+        <article>
+          <div class="avatar-group">
+            <img class="avatar" src="{{ user.avatar_url }}" alt="{{ user.first_name }} {{ user.last_name }}" />
+            <h2>{{ user.first_name }} {{ user.last_name }} | {{ user.age }}</h2>
+          </div>
 
-        <div class="email">
-          <h2>E-mail</h2>
-          <p>{{ user.email }}</p>
-        </div>
+          <div class="email">
+            <h2>E-mail</h2>
+            <p>{{ user.email }}</p>
+          </div>
 
-        <div class="bio">
-          <h2>Bio</h2>
-          <p>{{ user.bio }}</p>
-        </div>
-      </article>
+          <div class="bio">
+            <h2>Bio</h2>
+            <p>{{ user.bio }}</p>
+          </div>
+        </article>
+      </a>
       {% endfor %}
 
     </section>
   </main>
+
+  <script>
+    feather.replace()
+  </script>
 
 </body>
 

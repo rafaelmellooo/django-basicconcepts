@@ -13,14 +13,38 @@ button {
   font-family: 'Roboto', sans-serif;
 }
 
+main section a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+main section a:hover article {
+  background-color: rgb(243, 243, 243);
+}
+
 header {
   height: 100px;
   background-color: #00875b;
+  display: flex;
+  padding-right: 20px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header img {
   display: block;
   height: 100%;
+}
+
+#new {
+  color: #FFF;
+  height: 50px;
+  width: 50px;
+  transition: color 0.3s;
+}
+
+a:hover #new {
+  color: rgb(216, 216, 216);
 }
 
 h2 {
@@ -38,10 +62,11 @@ main section {
   gap: 20px;
 }
 
-main section article {
+main section a article {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 10px;
   border-radius: 4px;
+  transition: background-color 0.3s;
 }
 
 div.avatar-group {
@@ -58,7 +83,7 @@ img.avatar {
   margin-right: 10px;
 }
 
-main section article p {
+main section a article p {
   font-weight: 400;
 }
 

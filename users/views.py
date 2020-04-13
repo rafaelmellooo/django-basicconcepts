@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from .models import User
 
@@ -10,8 +10,12 @@ def index(request):
     })
 
 
-def detail(request, id):
-    user = User.objects.get(id=id)
+def detail(request, slug):
+    user = get_object_or_404(User, slug=slug)
     return render(request, 'user/detail.html', {
         'user': user
     })
+
+
+def new(request):
+    return render(request, 'user/new.html')
